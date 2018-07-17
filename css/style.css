@@ -1,0 +1,15 @@
+*{
+    -webkit-tap-highlight-color:transparent;
+}
+#theCanvas {
+	position:absolute;
+	left:5%;
+    top: 5%;
+    z-index : 1;
+}
+#theCanvas2 {
+	position:absolute;
+	left:5%;
+    top:5%;
+    z-index : 2;
+}
