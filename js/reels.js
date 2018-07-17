@@ -20,8 +20,7 @@ function Reel(x,y,width,height) {  						 // REEL CONSTRUCTOR
 }
 
 function renderReels() {
-    
-													 // DRAWING STATIC REELS 
+    													 // DRAWING STATIC REELS 
 	if (!spinStarted && firstRound) {				 // BEFORE SPINNING	
 		
 		context.drawImage(cherries,stacks[0][1].x,stacks[0][1].y,
@@ -74,19 +73,22 @@ function createStacks() {   	// POPULATE EACH ARRAY IN STACKS ARRAY WITH
 
 function moveReels() {							// APPLY VELOCITY ON Y AXIS
 	
+    var minValue = 40;
+    var maxValue = 400;
+    
     for (var i in stacks) {
         stacks[i][0].y += stacks[i][0].vy;
         stacks[i][1].y += stacks[i][1].vy;  
         stacks[i][2].y += stacks[i][2].vy; 
         
-        if (stacks[i][0].y > 400) {			   // IF REEL Y VALUE IS GREATER 
-            stacks[i][0].y = 40;   			   // THAN 400 SET IT BACK TO 40 
-        }									 // CREATING A "SPINNING" EFFECT
-        if (stacks[i][1].y > 400) {
-            stacks[i][1].y = 40;   
+        if (stacks[i][0].y > maxValue) {			   // IF REEL Y VALUE IS GREATER 
+            stacks[i][0].y = minValue;   			   // THAN 400, SET IT BACK TO 40 
+        }									           // CREATING A "SPINNING" EFFECT
+        if (stacks[i][1].y > maxValue) {
+            stacks[i][1].y = minValue;   
         }
-        if (stacks[i][2].y > 400) {
-            stacks[i][2].y = 40;   
+        if (stacks[i][2].y > maxValue) {
+            stacks[i][2].y = minValue;   
         }
     }
 }

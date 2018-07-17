@@ -1,6 +1,6 @@
 
 var cherries = new Image();
-cherries.src = "images/cherries.png";
+cherries.src = "images/cherries2.png";
 
 var bar = new Image();
 bar.src = "images/bar.png";
@@ -79,56 +79,57 @@ var casing = {
 	},
 	drawButtons : function() {
 	
-		context2.fillStyle = "#000";				// BLACK SHADOWS
-		context2.beginPath();
-		context2.arc(70,165,30,0,Math.PI * 2);
-		context2.closePath();
-		context2.fill();
-		context2.beginPath();
-		context2.arc(160,165,30,0,Math.PI * 2);
-		context2.closePath();
-		context2.fill();
-		context2.beginPath();
-		context2.arc(250,165,30,0,Math.PI * 2);
-		context2.closePath();
-		context2.fill();
-		context2.beginPath();
-		context2.arc(340,165,30,0,Math.PI * 2);
-		context2.closePath();
-		context2.fill();
-		context2.beginPath();
-		context2.arc(430,165,30,0,Math.PI * 2);
-		context2.closePath();
-		context2.fill();
+        var leftButtonShadowX = 70,
+            leftButtonShadowY = 165;
+                    
+        var leftButtonX = 70,
+            leftButtonY = 160;
+            
+        var buttonRadius = 30,
+            buttonStartAngle = 0,
+            buttonEndAngle = Math.PI * 2;
 
-		context2.fillStyle = "#fff";				// ACTUAL BUTTONS
-		context2.beginPath();
-		context2.arc(70,160,30,0,Math.PI * 2);
-		context2.closePath();
-		context2.fill();
+ 
+        // BUTTON SHADOWS
+        
+        for (var i = 0; i < 5; i++) {
+            
+            context2.beginPath();
+            context2.arc(leftButtonShadowX + (90 * i) , leftButtonShadowY, buttonRadius, buttonStartAngle, buttonEndAngle);
+            context2.closePath();
+            context2.fill();    
+        }
+            
+        // ACTUAL BUTTONS
+        
+        context2.fillStyle = "#fff";
+        
+       for (var i = 0; i < 5; i++) {
+            
+            context2.beginPath();
+            context2.arc(leftButtonX + (90 * i) , leftButtonY, buttonRadius, buttonStartAngle, buttonEndAngle);
+            context2.closePath();
+            context2.fill();    
+        }
 
-		context2.beginPath();
-		context2.arc(160,160,30,0,Math.PI * 2);
-		context2.closePath();
-		context2.fill();
-
-		context2.beginPath();
-		context2.arc(250,160,30,0,Math.PI * 2);
-		context2.closePath();
-		context2.fill();
-
-		context2.beginPath();
-		context2.arc(340,160,30,0,Math.PI * 2);
-		context2.closePath();
-		context2.fill();
-
-		context2.beginPath();
-		context2.arc(430,160,30,0,Math.PI * 2);
-		context2.closePath();
-		context2.fill();
 	},
 	drawDividers : function() {
 	
+        leftDividerX = 115;
+        dividerTop = 210;
+        dividerBottom = 330;
+        
+        context2.beginPath();
+        context2.lineWidth = 1;
+        
+        for (var i = 0; i < 4; i++) {
+                
+            context2.moveTo(leftDividerX + (90 * i), dividerTop);
+            context2.lineTo(leftDividerX + (90 * i), dividerBottom);
+            context2.stroke();
+        }
+        
+        /*
 		context2.beginPath();
 		context2.lineWidth = 1;
 		context2.moveTo(115,210);
@@ -147,6 +148,8 @@ var casing = {
 		context2.moveTo(385,210);
 		context2.lineTo(385,330);
 		context2.stroke();
+        */
+        
 	},
 	drawScreen : function() {
 	
@@ -165,123 +168,28 @@ var casing = {
 		context2.save();
 		context2.globalAlpha = 0.4;
 		context2.fillStyle = "#111";
-		context2.fillRect(20,210,95,10);
+		context2.fillRect(20,210,460,10);
 		context2.restore();
 	
 		context2.save();
 		context2.globalAlpha = 0.4;
 		context2.fillStyle = "#111";
-		context2.fillRect(20,320,95,10);
+		context2.fillRect(20,320,460,10);
 		context2.restore();
 
 		context2.save();
 		context2.globalAlpha = 0.3;
 		context2.fillStyle = "#aaa";
-		context2.fillRect(20,220,95,10);
+		context2.fillRect(20,220,460,10);
 		context2.restore();
 	
 		context2.save();
 		context2.globalAlpha = 0.3;
 		context2.fillStyle = "#aaa";
-		context2.fillRect(20,310,95,10);
-		context2.restore();
-
-		context2.save();
-		context2.globalAlpha = 0.4;
-		context2.fillStyle = "#111";
-		context2.fillRect(115,210,90,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.4;
-		context2.fillStyle = "#111";
-		context2.fillRect(115,320,90,10);
-		context2.restore();
-
-		context2.save();
-		context2.globalAlpha = 0.3;
-		context2.fillStyle = "#aaa";
-		context2.fillRect(115,220,90,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.3;
-		context2.fillStyle = "#aaa";
-		context2.fillRect(115,310,90,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.4;
-		context2.fillStyle = "#111";
-		context2.fillRect(205,210,90,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.4;
-		context2.fillStyle = "#111";
-		context2.fillRect(205,320,90,10);
-		context2.restore();
-
-		context2.save();
-		context2.globalAlpha = 0.3;
-		context2.fillStyle = "#aaa";
-		context2.fillRect(205,220,90,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.3;
-		context2.fillStyle = "#aaa";
-		context2.fillRect(205,310,90,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.4;
-		context2.fillStyle = "#111";
-		context2.fillRect(295,210,90,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.4;
-		context2.fillStyle = "#111";
-		context2.fillRect(295,320,90,10);
-		context2.restore();
-
-		context2.save();
-		context2.globalAlpha = 0.3;
-		context2.fillStyle = "#aaa";
-		context2.fillRect(295,220,90,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.3;
-		context2.fillStyle = "#aaa";
-		context2.fillRect(295,310,90,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.4;
-		context2.fillStyle = "#111";
-		context2.fillRect(385,210,95,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.4;
-		context2.fillStyle = "#111";
-		context2.fillRect(385,320,95,10);
-		context2.restore();
-
-		context2.save();
-		context2.globalAlpha = 0.3;
-		context2.fillStyle = "#aaa";
-		context2.fillRect(385,220,95,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.3;
-		context2.fillStyle = "#aaa";
-		context2.fillRect(385,310,95,10);
+		context2.fillRect(20,310,460,10);
 		context2.restore();
 	},
+    
 	clearScreen : function() {
 		
 		context2.clearRect(this.screen.x,this.screen.y,this.screen.width,
