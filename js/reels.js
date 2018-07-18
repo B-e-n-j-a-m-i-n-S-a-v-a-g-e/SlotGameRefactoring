@@ -20,23 +20,10 @@ function Reel(x,y,width,height) {  						 // REEL CONSTRUCTOR
 }
 
 function renderReels() {
-    													 // DRAWING STATIC REELS 
-	if (!spinStarted && firstRound) {				 // BEFORE SPINNING	
-		
-		context.drawImage(cherries,stacks[0][1].x,stacks[0][1].y,
-				stacks[0][1].width,stacks[0][1].height);
-		context.drawImage(bell,stacks[1][0].x,stacks[1][0].y,
-				stacks[1][0].width,stacks[1][0].height);
-		context.drawImage(bar,stacks[2][0].x,stacks[2][0].y,
-				stacks[2][0].width,stacks[2][0].height);
-		context.drawImage(cherries,stacks[3][0].x,stacks[3][0].y,
-				stacks[3][0].width,stacks[3][0].height);
-		context.drawImage(bar,stacks[4][0].x,stacks[4][0].y,
-				stacks[4][0].width,stacks[4][0].height);
-		
-	} else {								  		 // DRAWING REELS DURING 	
-											  		 // SPINNING PHASE	
-		for (var i in stacks) {
+    								
+	if (spinStarted && !firstRound) {				    
+        
+       for (var i in stacks) {
 
 			context.drawImage(bell,stacks[i][0].x,stacks[i][0].y,
 					stacks[i][0].width,stacks[i][0].height);
@@ -45,25 +32,24 @@ function renderReels() {
 			context.drawImage(cherries,stacks[i][2].x,stacks[i][2].y,
 					stacks[i][2].width,stacks[i][2].height);
 		}
-	}
+	} 
 }
 
 function addInitialValues() {		 // GIVE THE GAME DEFAULT VALUES ON LOAD
 	
 	if (!spinStarted && firstRound) {
-		
+        
 		context.drawImage(cherries,25,220,80,100);
 		context.drawImage(bar,120,220,80,100);
 		context.drawImage(bell,210,215,80,100);
 		context.drawImage(bell,300,215,80,100);
 		context.drawImage(cherries,390,220,80,100);
-		
-		window.requestAnimationFrame(addInitialValues);
 	}
 }
 
 function createStacks() {   	// POPULATE EACH ARRAY IN STACKS ARRAY WITH 
 								// NEW REEL
+    
     for (var i in stacks) {
         stacks[i].push(new Reel(i * 90 + 30,100, 80, 100));
         stacks[i].push(new Reel(i * 90 + 30,230, 80, 100));
@@ -122,8 +108,7 @@ function stopReel(num) { 						  // SET THE 3 REEL VELOCITIES
 		stacks[num][2].y = 220;  // CHERRIES
 		stacks[num][0].y = 340; 
 		results[num] = "CHERRIES";	
-		break;			
-			
+		break;						
 	}
 	
 	createjs.Sound.play(stopped);

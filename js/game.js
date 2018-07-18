@@ -11,8 +11,6 @@ function initializeGame() {   	// BASIC INITIALIZATION AND RENDERING OF
 	renderReels();
 	casing.drawCasing();
 	addInitialValues();
-	
-	canvas2.addEventListener("mousemove",onMouseMove);
 }
         
 function update() {   			// MAIN LOOP OF GAME
@@ -21,8 +19,7 @@ function update() {   			// MAIN LOOP OF GAME
     renderReels();
     moveReels();
     
-	//window.requestAnimationFrame(update);
-	window.setTimeout(update,10);
+	window.requestAnimationFrame(update);
 }
 
 initializeGame();

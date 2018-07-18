@@ -18,14 +18,9 @@ canvas2.addEventListener("click",function onClick() {
 				if (!selectionsComplete) {
 					if (parseInt(canvas.style.width) < 450) {
 				
-					// MOBILE DEVICES DO A BAD JOB AT HANDLING THIS QUICK
-					// AND REPETITIVE AUDIO, SO NOTHING PLAYS
-				
 					} else {
    						tick.play();
 					}
-
-					//createjs.Sound.play(tick);
 				}
 			},200)
 			spinStarted = true;
@@ -44,7 +39,9 @@ canvas2.addEventListener("click",function onClick() {
 
 function clickButtons() {						// WHEN BUTTON IS PRESSED, IF
 												// NO VALUE HAS BEEN ASSIGNED  
-		if (checkCollision(35,107,123,197)) {   // stopReel() IS CALLED
+		                                        // stopReel() IS CALLED
+    
+    if (checkCollision(35,107,123,197)) {   
 			if (results[0] === undefined) {	
 				stopReel(0);
 			}
@@ -67,7 +64,7 @@ function clickButtons() {						// WHEN BUTTON IS PRESSED, IF
 		} 
 }                                                             
 
-function onMouseMove(e) {
+canvas2.addEventListener("mousemove",function onMouseMove (e) {
     
 	var correctValue = 500,  
 		currentValue = parseInt(canvas.style.width),
@@ -81,4 +78,4 @@ function onMouseMove(e) {
         mouse.x = e.layerX * supplement;
         mouse.y = e.layerY * supplement;
     }
-}
+});

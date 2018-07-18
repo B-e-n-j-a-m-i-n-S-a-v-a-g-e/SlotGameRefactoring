@@ -3,10 +3,10 @@ var cherries = new Image();
 cherries.src = "images/cherries2.png";
 
 var bar = new Image();
-bar.src = "images/bar.png";
+bar.src = "images/bar2.png";
 
 var bell = new Image();
-bell.src = "images/bell.png";
+bell.src = "images/bell2.png";
 
 var coinImage = new Image();
 coinImage.src = "images/coins.png";
@@ -127,30 +127,9 @@ var casing = {
             context2.moveTo(leftDividerX + (90 * i), dividerTop);
             context2.lineTo(leftDividerX + (90 * i), dividerBottom);
             context2.stroke();
-        }
-        
-        /*
-		context2.beginPath();
-		context2.lineWidth = 1;
-		context2.moveTo(115,210);
-		context2.lineTo(115,330);
-		context2.closePath();
-		context2.stroke();
-
-		context2.moveTo(205,210);
-		context2.lineTo(205,330);
-		context2.stroke();
-
-		context2.moveTo(295,210);
-		context2.lineTo(295,330);
-		context2.stroke();
-
-		context2.moveTo(385,210);
-		context2.lineTo(385,330);
-		context2.stroke();
-        */
-        
+        }    
 	},
+    
 	drawScreen : function() {
 	
 		context2.save();
@@ -165,29 +144,39 @@ var casing = {
 	},
 	drawShadows : function() {   			// DRAWS SHADOWS FOR 3-D EFFECT 
 											// ON REELS
+        var shadowX = 20;
+        var shadowWidth = 460;
+        var shadowHeight = 10;
+        
+        var darkShadowTopY = 210;
+        var lightShadowTopY = 320;
+        var lightShadowBottomY = 310;
+        var darkShadowBottomY = 320;
+        
 		context2.save();
 		context2.globalAlpha = 0.4;
 		context2.fillStyle = "#111";
-		context2.fillRect(20,210,460,10);
+		context2.fillRect(shadowX,darkShadowTopY,shadowWidth,shadowHeight);
 		context2.restore();
-	
+        
+        context2.save();
+		context2.globalAlpha = 0.3;
+		context2.fillStyle = "#aaa";
+		context2.fillRect(shadowX,lightShadowTopY,shadowWidth,shadowHeight);
+		context2.restore();
+	    
+        context2.save();
+		context2.globalAlpha = 0.3;
+		context2.fillStyle = "#aaa";
+		context2.fillRect(shadowX,lightShadowBottomY,shadowWidth,shadowHeight);
+		context2.restore();
+        
 		context2.save();
 		context2.globalAlpha = 0.4;
 		context2.fillStyle = "#111";
-		context2.fillRect(20,320,460,10);
+		context2.fillRect(shadowX,darkShadowBottomY,shadowWidth,shadowHeight);
 		context2.restore();
 
-		context2.save();
-		context2.globalAlpha = 0.3;
-		context2.fillStyle = "#aaa";
-		context2.fillRect(20,220,460,10);
-		context2.restore();
-	
-		context2.save();
-		context2.globalAlpha = 0.3;
-		context2.fillStyle = "#aaa";
-		context2.fillRect(20,310,460,10);
-		context2.restore();
 	},
     
 	clearScreen : function() {
