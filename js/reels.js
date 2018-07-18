@@ -8,7 +8,8 @@ var stacks = [
     ],
 	randomValue = 0,
 	selectionsComplete = false,
-	spinStarted = false;
+	spinStarted = false,
+    numButtonsSelected = 0;
 
 function Reel(x,y,width,height) {  						 // REEL CONSTRUCTOR
     
@@ -20,9 +21,7 @@ function Reel(x,y,width,height) {  						 // REEL CONSTRUCTOR
 }
 
 function renderReels() {
-    								
-	if (spinStarted && !firstRound) {				    
-        
+
        for (var i in stacks) {
 
 			context.drawImage(bell,stacks[i][0].x,stacks[i][0].y,
@@ -32,19 +31,6 @@ function renderReels() {
 			context.drawImage(cherries,stacks[i][2].x,stacks[i][2].y,
 					stacks[i][2].width,stacks[i][2].height);
 		}
-	} 
-}
-
-function addInitialValues() {		 // GIVE THE GAME DEFAULT VALUES ON LOAD
-	
-	if (!spinStarted && firstRound) {
-        
-		context.drawImage(cherries,25,220,80,100);
-		context.drawImage(bar,120,220,80,100);
-		context.drawImage(bell,210,215,80,100);
-		context.drawImage(bell,300,215,80,100);
-		context.drawImage(cherries,390,220,80,100);
-	}
 }
 
 function createStacks() {   	// POPULATE EACH ARRAY IN STACKS ARRAY WITH 
@@ -53,7 +39,7 @@ function createStacks() {   	// POPULATE EACH ARRAY IN STACKS ARRAY WITH
     for (var i in stacks) {
         stacks[i].push(new Reel(i * 90 + 30,100, 80, 100));
         stacks[i].push(new Reel(i * 90 + 30,230, 80, 100));
-        stacks[i].push(new Reel(i * 90 + 30,350, 80, 100));
+        stacks[i].push(new Reel(i * 90 + 40,350, 60, 75));
     }
 } 
 
@@ -79,7 +65,10 @@ function moveReels() {							// APPLY VELOCITY ON Y AXIS
     }
 }
 
-function stopReel(num) { 						  // SET THE 3 REEL VELOCITIES 
+function stopReel(num) { 						  
+    
+    numButtonsSelected++;
+                                                   // SET THE 3 REEL VELOCITIES 
 												  // TO 0 AND CHOOSES VALUE
 	randomValue = Math.floor(Math.random() * 3);  // ACCORDING TO A RANDOM
 												  // NUMBER
@@ -113,7 +102,7 @@ function stopReel(num) { 						  // SET THE 3 REEL VELOCITIES
 	
 	createjs.Sound.play(stopped);
 	
-	if (results.length === 5) {
+	if (numButtonsSelected === 5) {
 		evaluateResults();
 	}
 }
@@ -123,6 +112,7 @@ function resetReels() {   		       // RESETS VALUES FOR SUBSEQUENT SPINS
 	spinStarted = false;
 	firstRound = false;
 	selectionsComplete = false;
+    numButtonsSelected = 0;
 	randomValue = 0;
 	stacks = [
         [],

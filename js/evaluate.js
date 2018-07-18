@@ -28,16 +28,16 @@ function evaluateResults() { 	// GO THROUGH EACH ELEMENT OF THE RESULTS ARRAY
 function countSymbols(cherries,bells,bars) {   	  // COUNTS # OF SYMBOLS PASSED 	
 					                              // IN AS ARGUMENTS THEN PLAYS
     			                                  // WIN/LOSE AUDIO AND 
-                                                 // OUTPUTS PRIZE VALUE TO SCREEN
-                                                      
+                                                 // OUTPUTS PRIZE VALUE TO SCREEN                                                  
 	if (cherries < 3 && bells < 3 && bars < 3) {  					  
     	context2.strokeText("YOU LOSE!",casing.screen.x + 120,
         casing.screen.y + 70);
 		createjs.Sound.play(lose);
 	} else {
 		createjs.Sound.play(win);
-		coinImage.src = "images/coins.png";
-		context2.drawImage(coinImage,0,410,500,500);
+
+		context2.drawImage(coinImage,20,370,300,300);
+        context2.drawImage(coinImage,200,370,300,300);
 	}
 		
 	//OUTPUT RESULTS FOR CHERRIES

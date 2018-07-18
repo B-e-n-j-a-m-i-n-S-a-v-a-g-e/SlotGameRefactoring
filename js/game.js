@@ -8,9 +8,7 @@ var canvas = document.getElementById("theCanvas"),
 function initializeGame() {   	// BASIC INITIALIZATION AND RENDERING OF
 								// SLOT MACHINE
 	createStacks();
-	renderReels();
 	casing.drawCasing();
-	addInitialValues();
 }
         
 function update() {   			// MAIN LOOP OF GAME

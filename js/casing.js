@@ -1,15 +1,21 @@
 
 var cherries = new Image();
-cherries.src = "images/cherries2.png";
+cherries.src = "images/cherries.png";
 
 var bar = new Image();
-bar.src = "images/bar2.png";
+bar.src = "images/bar.png";
 
 var bell = new Image();
-bell.src = "images/bell2.png";
+bell.src = "images/bell.png";
 
 var coinImage = new Image();
 coinImage.src = "images/coins.png";
+
+var buttonRow = new Image();
+buttonRow.src = "images/buttonRow.png";
+
+var spinButton = new Image();
+spinButton.src = "images/spinButton.png";
 
 var casing = {
 	
@@ -142,7 +148,8 @@ var casing = {
 				this.screen.width + 4,this.screen.height + 4);
 		context2.restore();
 	},
-	drawShadows : function() {   			// DRAWS SHADOWS FOR 3-D EFFECT 
+	
+    drawShadows : function() {   			// DRAWS SHADOWS FOR 3-D EFFECT 
 											// ON REELS
         var shadowX = 20;
         var shadowWidth = 460;

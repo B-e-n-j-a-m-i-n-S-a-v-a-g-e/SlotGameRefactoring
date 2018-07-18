@@ -30,4 +30,5 @@ TO STOP EACH REEL, PRESS THE WHITE BUTTON ABOVE IT.
 
 DEVELOPED BY BEN SAVAGE
 2-5-2016 TO 2-12-2016
+*REFACTORED & RESKINNED 7-17 2018
 ****************************************************************/
